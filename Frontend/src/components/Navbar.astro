@@ -5,7 +5,8 @@ interface props {
   links?: { name: string; link: string }[];
 }
 
-const { links = [{ name: "Test", link: "/Test" }] } = Astro.props;
+const { links = [{ name: "Test", link: "/perpfolio.github.io/Test" }] } =
+  Astro.props;
 ---
 
 <section
@@ -24,7 +25,7 @@ const { links = [{ name: "Test", link: "/Test" }] } = Astro.props;
     class="flex lg:flex-row flex-col gap-x-8 lg:justify-self-end lg:col-start-4 lg:col-end-13 col-span-full lg:flex hidden lg:mt-0 mt-[1vh]"
   >
     {
-      links.map(({ name = "Test", link = "/test" }) => {
+      links.map(({ name = "Test", link = "/perpfolio.github.io/test" }) => {
         return (
           <a href={link} class="text-center">
             {name}

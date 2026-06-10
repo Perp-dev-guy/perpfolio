@@ -1,0 +1,46 @@
+---
+interface Props {
+  headerText?: string;
+  subHeaderText?: string;
+  ctaText?: string;
+}
+
+const {
+  headerText = "Header",
+  subHeaderText = "Subheader",
+  ctaText = "Call to Action",
+} = Astro.props;
+---
+
+<section
+  class="w-full h-[100vh] font-pm px-[15vw] py-[15vh] grid lg:grid-cols-12 md:grid-cols-8 grid-cols-4 lg:items-center"
+>
+  <div
+    class="flex flex-col leading-[1.2] md:col-span-8 col-span-4 gap-y-8 place-content-center"
+  >
+    <h1 class="lg:text-[4rem] lg:text-left text-[2.75rem] text-center h-max">
+      {headerText}
+    </h1>
+    <p
+      class="lg:text-[1.5rem] text-[1rem] h-max text-neutral-400 lg:text-left text-center"
+    >
+      {subHeaderText}
+    </p>
+    <div class="flex w-full lg:place-content-start place-content-center">
+      <a
+        href="/projects"
+        class="lg:text-[1.5rem] text-[1.2rem] lg:mt-8 lg:w-min w-min h-min text-white grid place-items-center grid-rows-1 [&>*]:row-1 [&>*]:col-1"
+      >
+        <img src="/circle.svg" class="w-full h-full" />
+        <p class="text-center w-max p-[2rem]">
+          {ctaText}
+        </p>
+      </a>
+    </div>
+  </div>
+  <img
+    src="/smile.svg"
+    alt="Hai!!!"
+    class="hidden md:inline lg:col-span-4 md:col-span-2 md:col-start-4 md:mt-[4vh] place-self-center"
+  />
+</section>

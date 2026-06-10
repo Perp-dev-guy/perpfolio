@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface props {
+  links?: { name: string; link: string }[];
+}
+
+const { links = [{ name: "Test", link: "/Test" }] } = Astro.props;
+---
+
+<section
+  class="fixed px-[15vw] font-pm grid lg:grid-cols-12 md:grid-cols-8 grid-cols-4 text-[1.5rem] py-[3vh] h-max w-[100vw] backdrop-blur-lg"
+>
+  <a href="/" class="flex gap-x-4 w-max col-span-3"
+    ><img src="/smile.svg" alt=":)" class="h-[1.5rem]" />Perpfolio</a
+  >
+  <Icon
+    name="material-symbols:menu-rounded"
+    id="navmenu"
+    class="lg:hidden lg:col-13 md:col-9 col-5 aspect-square"
+  />
+  <div
+    id="navlinks"
+    class="flex lg:flex-row flex-col gap-x-8 lg:justify-self-end lg:col-start-4 lg:col-end-13 col-span-full lg:flex hidden lg:mt-0 mt-[1vh]"
+  >
+    {
+      links.map(({ name = "Test", link = "/test" }) => {
+        return (
+          <a href={link} class="text-center">
+            {name}
+          </a>
+        );
+      })
+    }
+    <button class="text-center lg:hidden" id="navmenu2">X</button>
+  </div>
+</section>
+
+<script>
+  const navMenu = document.getElementById("navmenu");
+  const navMenu2 = document.getElementById("navmenu2");
+
+  let menuOpened = false;
+  function onClick() {
+    menuOpened = !menuOpened;
+    if (menuOpened) {
+      document.getElementById("navlinks")?.classList.remove("hidden");
+      navMenu?.classList.add("hidden");
+    } else {
+      document.getElementById("navlinks")?.classList.add("hidden");
+      navMenu?.classList.remove("hidden");
+    }
+  }
+  navMenu?.addEventListener("click", onClick);
+  navMenu2?.addEventListener("click", onClick);
+</script>

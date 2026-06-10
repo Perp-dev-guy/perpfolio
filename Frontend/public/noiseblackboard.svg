@@ -1,0 +1,14 @@
+<svg
+  viewBox="300 300 300 300"
+  xmlns="http://www.w3.org/2000/svg">
+  <filter id="displacementFilter">
+    <feTurbulence
+      type="fractalnoise"
+      baseFrequency="0.3"
+      numOctaves="1"
+      stitchTiles='stitch'
+      result="turbulence" />
+    <feBlend in2="turbulence" in="SourceGraphic" mode="multiply" />
+  </filter>
+  <rect width="300%" height="300%" fill="#111111" filter="url(#displacementFilter)" />
+</svg>

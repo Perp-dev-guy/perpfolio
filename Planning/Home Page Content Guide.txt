@@ -1,0 +1,28 @@
+Home page:
+
+    Hero:
+        Header: Solving Complex Problems With Simple Solutions
+        SubHeader: Hello, I'm Perp and I make creative solutions to complex problems!
+        CTA: See my projects!
+    
+    My Skills:
+        Frontend:
+            Astro
+            React
+        Backend:
+            Nodejs
+            Express
+            Go (net/http)
+        Databases:
+            PostgreSQL
+
+    A little bit about me:
+        My Passion:
+            Computer Science
+            Software Engineering
+        My Hobbies:
+            Gaming
+            Programming
+        My Pets:
+            Dogs: Luna, Bella, Tito
+            Bunnies: Dusty, Azzy, Pickles, Squirt

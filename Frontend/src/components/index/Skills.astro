@@ -1,0 +1,15 @@
+---
+interface Props {
+  frontendSkills?: { icon: string; name: string }[];
+}
+
+const {
+  frontendSkills = [{ icon: "vscode-icons:file-type-astro", name: "Frontend" }],
+} = Astro.props;
+---
+
+<section class="w-full h-[100vh] px-[15vw] font-pm">
+  <div class="flex flex-col border-6 mx-[10vw] p-3 text-center text-[1.5rem]">
+    Frontend
+  </div>
+</section>

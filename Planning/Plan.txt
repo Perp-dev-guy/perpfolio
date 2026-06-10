@@ -1,0 +1,19 @@
+This is my portfolio site planning sheet.
+
+Theme: Pastels on a blackboard
+
+Pastels palette:
+
+#FAEDCB
+#C9E4DE
+#C6DEF1
+#DBCDF0
+#F2C6DE
+#F7D9C4
+
+Pages:
+    Home
+    Projects
+    Contact
+
+Bottom shelf and bricks below as the background with sharpee text links

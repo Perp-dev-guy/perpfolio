@@ -1,15 +1,59 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   frontendSkills?: { icon: string; name: string }[];
 }
 
 const {
-  frontendSkills = [{ icon: "vscode-icons:file-type-astro", name: "Frontend" }],
+  frontendSkills = [
+    { icon: "devicon-plain:astro", name: "Astro" },
+    { icon: "devicon:react", name: "React" },
+    { icon: "devicon:typescript", name: "TypeScript" },
+    { icon: "devicon:html5", name: "HTML5" },
+  ],
 } = Astro.props;
 ---
 
 <section class="w-full h-[100vh] px-[15vw] font-pm">
-  <div class="flex flex-col border-6 mx-[10vw] p-3 text-center text-[1.5rem]">
-    Frontend
+  <p class="w-full text-[2rem] font-bold text-center py-[4vh]">My Skills</p>
+  <div class="flex flex-col mx-[10vw] text-center text-[1.5rem]">
+    <p class="border-6 p-3">Frontend</p>
+    <div
+      class="border-6 mt-[-6px] border-dashed grid grid-cols-4 gap-6 px-6 [&>div]:hidden place-items-center"
+      id="feMenu"
+    >
+      {
+        frontendSkills.map(({ icon, name }) => (
+          <div class="flex flex-col items-center border-6 border-dashed w-full p-3 mt-6">
+            <Icon name={icon} class="text-[4rem]" />
+            <p class="mt-2">{name}</p>
+          </div>
+        ))
+      }
+      <button id="expand" class="col-span-full"
+        ><Icon
+          name="iconamoon:arrow-down-2-duotone"
+          class="text-[3rem]"
+          id="feExpArrow"
+        /></button
+      >
+    </div>
   </div>
 </section>
+
+<script>
+  let feMenuOpened = false;
+  document.getElementById("expand")?.addEventListener("click", () => {
+    const feMenu = document.getElementById("feMenu");
+    const feExpArrow = document.getElementById("feExpArrow");
+    feMenuOpened = !feMenuOpened;
+    if (feMenuOpened) {
+      feExpArrow?.classList.add("rotate-180");
+      feMenu?.classList.remove("[&>div]:hidden");
+    } else {
+      feExpArrow?.classList.remove("rotate-180");
+      feMenu?.classList.add("[&>div]:hidden");
+    }
+  });
+</script>

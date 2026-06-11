@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 interface Props {
   frontendSkills?: { icon: string; name: string }[];
   backendSkills?: { icon: string; name: string }[];
+  miscSkills?: { icon: string; name: string }[];
 }
 
 const {
@@ -17,6 +18,16 @@ const {
   backendSkills = [
     { icon: "devicon:nodejs", name: "Node.js" },
     { icon: "devicon:go", name: "GoLang" },
+    { icon: "devicon:python", name: "Python" },
+    { icon: "devicon:javascript", name: "JavaScript" },
+    { icon: "devicon:csharp", name: "C#" },
+    { icon: "devicon:postgresql", name: "PostgreSQL" },
+  ],
+  miscSkills = [
+    { icon: "devicon:git", name: "Git" },
+    { icon: "mdi:github", name: "GitHub" },
+    { icon: "devicon:vscode", name: "VS Code" },
+    { icon: "devicon:figma", name: "Figma" },
   ],
 } = Astro.props;
 ---
@@ -70,12 +81,37 @@ const {
         >
       </div>
     </div>
+    <div class="flex flex-col mx-[10vw] text-center text-[1.5rem]">
+      <p class="border-6 p-3">Miscellaneous</p>
+      <div
+        class="border-6 mt-[-6px] border-dashed grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 px-6 [&>div]:hidden place-items-center"
+        id="miscMenu"
+      >
+        {
+          miscSkills.map(({ icon, name }) => (
+            <div class="flex flex-col items-center border-6 border-dashed w-full p-3 mt-6">
+              <Icon name={icon} class="text-[4rem]" />
+              <p class="mt-2">{name}</p>
+            </div>
+          ))
+        }
+        <button id="mexpand" class="col-span-full"
+          ><Icon
+            name="iconamoon:arrow-down-2-duotone"
+            class="text-[3rem]"
+            id="mExpArrow"
+          /></button
+        >
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
   let feMenuOpened = false;
   let beMenuOpened = false;
+  let miscMenuOpened = false;
+
   document.getElementById("fexpand")?.addEventListener("click", () => {
     const feMenu = document.getElementById("feMenu");
     const feExpArrow = document.getElementById("feExpArrow");
@@ -99,6 +135,19 @@ const {
     } else {
       beExpArrow?.classList.remove("rotate-180");
       beMenu?.classList.add("[&>div]:hidden");
+    }
+  });
+
+  document.getElementById("mexpand")?.addEventListener("click", () => {
+    const miscMenu = document.getElementById("miscMenu");
+    const miscExpArrow = document.getElementById("mExpArrow");
+    miscMenuOpened = !miscMenuOpened;
+    if (miscMenuOpened) {
+      miscExpArrow?.classList.add("rotate-180");
+      miscMenu?.classList.remove("[&>div]:hidden");
+    } else {
+      miscExpArrow?.classList.remove("rotate-180");
+      miscMenu?.classList.add("[&>div]:hidden");
     }
   });
 </script>

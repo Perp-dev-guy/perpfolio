@@ -9,17 +9,15 @@ import Skills from "../components/index/Skills.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/perpfolio/smile.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/smile.ico" type="image/x-icon" />
     <title>Perpfolio</title>
   </head>
-  <body
-    class="bg-[url('/perpfolio/noiseblackboard.svg')] bg-contain text-white"
-  >
+  <body class="bg-[url('/noiseblackboard.svg')] bg-contain text-white">
     <Navbar
       links={[
-        { name: "Home", link: "/perpfolio/" },
-        { name: "Projects", link: "/perpfolio/projects" },
-        { name: "Contact", link: "/perpfolio/contact" },
+        { name: "Home", link: "/" },
+        { name: "Projects", link: "/projects" },
+        { name: "Contact", link: "/contact" },
       ]}
     />
     <Hero
